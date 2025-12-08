@@ -13,9 +13,10 @@ import { NgIf } from '@angular/common';
 export class AppComponent {
   title = 'Appointment Booking App';
 
-  // 👇 this fixes: Property 'currentYear' does not exist on type 'AppComponent'
+  // this fixes: Property 'currentYear' does not exist on type 'AppComponent'
   currentYear = new Date().getFullYear();
 
   // simple flag so NgIf is actually used (removes warning NG8113)
   showHeader = true;
 }
+
