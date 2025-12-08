@@ -1,0 +1,50 @@
+<section class="card">
+  <header class="list-header">
+    <h2>Booked Appointments</h2>
+    <a routerLink="/book" class="link-button">+ New Appointment</a>
+  </header>
+
+  <ng-container *ngIf="appointments$ | async as appointments; else empty">
+    <table class="appointments-table" *ngIf="appointments.length > 0; else empty">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Patient</th>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Reason</th>
+          <th>Created</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of appointments; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ a.patientName | titlecase }}</td>
+          <td>{{ a.doctor }}</td>
+          <td>{{ a.date | date: 'mediumDate' }}</td>
+          <td>{{ a.time }}</td>
+          <td>{{ a.reason }}</td>
+          <td>{{ a.createdAt | date: 'short' }}</td>
+          <td class="actions">
+            <button type="button" (click)="delete(a.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="list-footer" *ngIf="appointments.length > 0">
+      <span>Total: {{ appointments.length }} appointment(s)</span>
+      <button type="button" class="btn-secondary" (click)="clearAll()">
+        Clear All
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #empty>
+    <p class="empty-state">
+      No appointments yet. <a routerLink="/book">Book your first appointment</a>.
+    </p>
+  </ng-template>
+</section>

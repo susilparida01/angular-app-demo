@@ -1,1 +1,26 @@
-<h1>Welcome to Angular Learning</h1>
+<!-- src/app/app.html -->
+
+<header *ngIf="showHeader" class="app-header">
+  <h1>{{ title }}</h1>
+
+  <nav class="nav">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Home
+    </a>
+    <a routerLink="/appointments" routerLinkActive="active">
+      Appointments
+    </a>
+    <a routerLink="/appointments/new" routerLinkActive="active">
+      Book Appointment
+    </a>
+  </nav>
+</header>
+
+<main class="app-main">
+  <!-- Routed components will render here -->
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="app-footer">
+  <small>&copy; {{ currentYear || 2025 }} Appointment Booking App</small>
+</footer>

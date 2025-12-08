@@ -1,12 +1,21 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+// src/app/app.ts
+import { Component } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, NgIf],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('angular-app-demo');
+export class AppComponent {
+  title = 'Appointment Booking App';
+
+  // 👇 this fixes: Property 'currentYear' does not exist on type 'AppComponent'
+  currentYear = new Date().getFullYear();
+
+  // simple flag so NgIf is actually used (removes warning NG8113)
+  showHeader = true;
 }

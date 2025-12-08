@@ -1,0 +1,73 @@
+<section class="card">
+  <h2>Book a New Appointment</h2>
+  <p class="subtitle">
+    Fill in the details below to book an appointment.
+  </p>
+
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" novalidate>
+    <!-- Patient Name -->
+    <div class="form-row">
+      <label for="patientName">Patient Name</label>
+      <input
+        id="patientName"
+        type="text"
+        formControlName="patientName"
+        placeholder="Enter full name"
+      />
+      <div class="error" *ngIf="submitted && f['patientName'].invalid">
+        Name is required (min 3 characters).
+      </div>
+    </div>
+
+    <!-- Doctor -->
+    <div class="form-row">
+      <label for="doctor">Doctor</label>
+      <select id="doctor" formControlName="doctor">
+        <option value="">-- Select Doctor --</option>
+        <option *ngFor="let d of doctors" [value]="d">
+          {{ d }}
+        </option>
+      </select>
+      <div class="error" *ngIf="submitted && f['doctor'].invalid">
+        Please choose a doctor.
+      </div>
+    </div>
+
+    <!-- Date & Time -->
+    <div class="form-row inline">
+      <div>
+        <label for="date">Date</label>
+        <input id="date" type="date" formControlName="date" />
+        <div class="error" *ngIf="submitted && f['date'].invalid">
+          Date is required.
+        </div>
+      </div>
+
+      <div>
+        <label for="time">Time</label>
+        <input id="time" type="time" formControlName="time" />
+        <div class="error" *ngIf="submitted && f['time'].invalid">
+          Time is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Reason -->
+    <div class="form-row">
+      <label for="reason">Reason / Symptoms</label>
+      <textarea
+        id="reason"
+        rows="3"
+        formControlName="reason"
+        placeholder="Short description"
+      ></textarea>
+      <div class="error" *ngIf="submitted && f['reason'].invalid">
+        Reason is required (max 200 characters).
+      </div>
+    </div>
+
+    <button type="submit" class="btn-primary">
+      Book Appointment
+    </button>
+  </form>
+</section>

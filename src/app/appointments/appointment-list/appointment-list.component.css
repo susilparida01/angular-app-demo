@@ -1,0 +1,81 @@
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.link-button {
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  border: 1px solid #1e88e5;
+  font-size: 0.9rem;
+}
+
+.link-button:hover {
+  background: #e3f2fd;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.appointments-table th,
+.appointments-table td {
+  border-bottom: 1px solid #eceff1;
+  padding: 0.5rem 0.4rem;
+  text-align: left;
+}
+
+.appointments-table th {
+  background: #f5f5f5;
+}
+
+.actions button {
+  border: none;
+  background: #ef5350;
+  color: white;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.actions button:hover {
+  background: #c62828;
+}
+
+.empty-state {
+  margin: 0.5rem 0 0;
+  color: #555;
+}
+
+.list-footer {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  align-items: center;
+}
+
+.btn-secondary {
+  border-radius: 4px;
+  padding: 0.3rem 0.8rem;
+  background: #eceff1;
+  border: 1px solid #b0bec5;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #cfd8dc;
+}
